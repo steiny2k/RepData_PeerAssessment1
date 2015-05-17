@@ -120,7 +120,7 @@ mean(steps.interpolated.by.day$total)
 median(steps.interpolated.by.day$total)
 ```
 
-Depending on the method used for imputing missing values, the mean and meadian 
+Depending on the method used for imputing missing values, the mean and median 
 may change or not. The simple method used here did not change anything obvious.
 
 ```{r}
@@ -138,6 +138,6 @@ steps.interpolated.by.interval <- steps.interpolated %>%
     summarise(mean = mean(steps))
 
 ggplot(steps.interpolated.by.interval, aes(x = interval, y = mean)) +
-    geom_line() + facet_grid(is.weekend ~ .)
+    geom_line() + facet_grid(is.weekend ~ ., labeller = label_both)
 ```
 
